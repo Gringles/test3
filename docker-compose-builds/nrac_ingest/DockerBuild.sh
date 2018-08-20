@@ -41,3 +41,5 @@ sudo docker-compose up -d
 # Remove leftover files
 rm *.yml *.properties *.nar
 
+echo MiNiFi installed!
+
