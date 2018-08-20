@@ -36,7 +36,6 @@ echo "Building MiNiFi Image: '$DOCKER_IMAGE' Version: $MINIFI_IMAGE_VERSION"
 docker build -t $DOCKER_IMAGE . > docker-build.log 2>&1
 echo "Build Completed - check docker-build.log for errors"
 
-# Remove leftover files
-rm *.yml *.properties *.nar
+
 
 
