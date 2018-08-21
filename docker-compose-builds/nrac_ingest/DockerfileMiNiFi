@@ -47,6 +47,7 @@ COPY config.yml nrac-nifi-parameters.properties $MINIFI_HOME/conf/
 COPY nifi-distributed-cache-services-nar-1.4.0.nar nifi-kafka-0-10-nar-1.4.0.nar $MINIFI_HOME/lib/
 
 RUN chown -R minifi:minifi $MINIFI_HOME
+	
 
 USER minifi
 

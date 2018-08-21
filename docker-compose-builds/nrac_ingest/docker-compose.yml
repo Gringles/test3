@@ -4,6 +4,19 @@ services:
     image: wurstmeister/zookeeper:3.4.6
     ports:
       - "2181:2181"
+  minifi:
+    build: 
+      context: .
+      dockerfile: DockerfileMiNiFi
+      args:
+        UID:1000
+        GID:1000
+        MINIFI_VERSION:0.3.0
+    image: nrac-minifi:0.0.3
+    environment:
+      MINIFI_BASE_DIR: /opt/minifi
+      MINIFI_HOME: "ingest.tube.metropolitan_line_v1_0:1:1,ingest.tube.metropolitan_line_exception_v1_0:1:1"
+      MINIFI_BINARY_URL: zookeeper:2181
   kafka:
     build: 
       context: .
@@ -20,6 +33,7 @@ services:
       JMX_PORT: 9999
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+  
   kafka-manager:
     build:
       context: .
