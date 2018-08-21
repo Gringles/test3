@@ -7,11 +7,7 @@ services:
   minifi:
     build: 
       context: .
-      dockerfile: DockerfileMiNiFi
-      args:
-        UID:1000
-        GID:1000
-        MINIFI_VERSION:0.3.0
+      dockerfile: DockerfileMiNiFi     
     image: nrac-minifi:0.0.3
     environment:
       MINIFI_BASE_DIR: /opt/minifi
