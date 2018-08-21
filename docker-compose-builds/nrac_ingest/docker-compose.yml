@@ -13,24 +13,7 @@ services:
       MINIFI_BASE_DIR: /opt/minifi
       MINIFI_HOME: "ingest.tube.metropolitan_line_v1_0:1:1,ingest.tube.metropolitan_line_exception_v1_0:1:1"
       MINIFI_BINARY_URL: zookeeper:2181
-  kafka:
-    build: 
-      context: .
-      dockerfile: DockerfileKafka
-    image: nrac-kafka:0.0.3
-    ports:
-      - "9092:9092"
-      - "9999:9999"
-    environment:
-      KAFKA_ADVERTISED_HOST_NAME: nrac_ingest_kafka_1
-      KAFKA_CREATE_TOPICS: "ingest.tube.metropolitan_line_v1_0:1:1,ingest.tube.metropolitan_line_exception_v1_0:1:1"
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_JMX_OPTS: "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=nrac_ingest_kafka_1 -Dcom.sun.management.jmxremote.rmi.port=9999"
-      JMX_PORT: 9999
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-  
-  kafka-manager:
+ 
     build:
       context: .
       dockerfile: DockerfileKafkaManager
