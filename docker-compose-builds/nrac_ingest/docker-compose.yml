@@ -25,19 +25,4 @@ services:
       JMX_PORT: 9999
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-   kafka-manager:
-    build:
-      context: .
-      dockerfile: DockerfileKafkaManager
-    image: nrac-kafka-manager:0.0.3
-    ports:
-      - "9000:9000"
-    links:
-      - zookeeper
-      - kafka
-    environment:
-      ZK_HOSTS: zookeeper:2181
-      KM_VERSION: 1.3.3.18 
-      KM_USERNAME: admin
-      KM_PASSWORD: Password123!!
- 
+  
